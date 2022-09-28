@@ -48,7 +48,7 @@ const Home: NextPage = () => {
         <h1 className="mt-10 font-bold text-5xl">Atharva Deosthale</h1>
         <div className="mt-10 text-2xl max-w-3xl leading-normal text-gray-400">
           Welcome! These are all the important links you can refer to. I keep
-          them updating so if you see me refer to this link, it might be updated
+          them updated so if you see me refer to this link, it might be updated
           to include a new link or an updated link. Thanks for your time and
           have a great day!
         </div>
