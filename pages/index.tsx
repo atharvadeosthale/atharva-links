@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import { useState } from "react";
 import Link from "../components/Link";
 
@@ -53,12 +54,30 @@ const Home: NextPage = () => {
           have a great day!
         </div>
       </div>
-
       <div className="mt-10 mb-28 flex flex-col gap-y-5 max-w-xl mx-auto w-full">
         {links.map((link) => (
           <Link label={link.label} url={link.url} featured={link.featured} />
         ))}
       </div>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-F5K0043KNF"
+      />
+
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F5K0043KNF', {
+page_path: window.location.pathname,
+});
+`,
+        }}
+      />
     </div>
   );
 };
