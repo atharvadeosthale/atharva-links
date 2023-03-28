@@ -17,6 +17,11 @@ const Home: NextPage = () => {
       featured: false,
     },
     {
+      label: "Personal Blog on Hashnode",
+      url: "https://blog.atharva.codes",
+      featured: false,
+    },
+    {
       label: "LinkedIn Profile",
       url: "https://linkedin.com/in/atharvadeosthale",
       featured: false,
@@ -24,11 +29,6 @@ const Home: NextPage = () => {
     {
       label: "Instagram Profile",
       url: "https://instagram.com/atharvadeosthale",
-      featured: false,
-    },
-    {
-      label: "Personal Blog on Hashnode",
-      url: "https://blog.atharvadeosthale.com",
       featured: false,
     },
   ]);
