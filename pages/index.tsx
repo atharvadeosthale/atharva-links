@@ -27,11 +27,6 @@ const Home: NextPage = () => {
       url: "https://linkedin.com/in/atharvadeosthale",
       featured: false,
     },
-    {
-      label: "Instagram Profile",
-      url: "https://instagram.com/atharvadeosthale",
-      featured: false,
-    },
   ]);
 
   return (
