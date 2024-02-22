@@ -6,15 +6,15 @@ import { useState } from "react";
 import Link from "../components/Link";
 
 const Home: NextPage = () => {
-  const [links, setLinks] = useState([
+  const [links] = useState([
     {
       label: "YouTube Channel",
       url: "https://www.youtube.com/channel/UC3UrEDB27fL3vbnt-tiMgoQ",
       featured: false,
     },
     {
-      label: "Twitter Handle",
-      url: "https://twitter.com/athudeosthale",
+      label: "Portfolio Website",
+      url: "https://atharva.codes",
       featured: false,
     },
     {
@@ -22,6 +22,17 @@ const Home: NextPage = () => {
       url: "https://blog.atharva.codes",
       featured: false,
     },
+    {
+      label: "Instagram",
+      url: "https://instagram.com/atharvadeosthale",
+      featured: false,
+    },
+    {
+      label: "Twitter Handle",
+      url: "https://twitter.com/athudeosthale",
+      featured: false,
+    },
+
     {
       label: "LinkedIn Profile",
       url: "https://linkedin.com/in/atharvadeosthale",
@@ -50,8 +61,13 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="mt-10 mb-28 flex flex-col gap-y-5 max-w-xl mx-auto w-full">
-        {links.map((link) => (
-          <Link label={link.label} url={link.url} featured={link.featured} />
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            label={link.label}
+            url={link.url}
+            featured={link.featured}
+          />
         ))}
       </div>
       <Script
