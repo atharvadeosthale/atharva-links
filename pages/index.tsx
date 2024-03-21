@@ -38,6 +38,11 @@ const Home: NextPage = () => {
       url: "https://linkedin.com/in/atharvadeosthale",
       featured: false,
     },
+    {
+      label: "Casual coffee chat with me",
+      url: "https://cal.com/atharvadeosthale/coffee-chat",
+      featured: false,
+    },
   ]);
 
   return (
