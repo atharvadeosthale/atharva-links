@@ -28,8 +28,8 @@ const Home: NextPage = () => {
       featured: false,
     },
     {
-      label: "Twitter Handle",
-      url: "https://twitter.com/athudeosthale",
+      label: "X (Formerly Twitter) Handle",
+      url: "https://x.com/atharvabuilds",
       featured: false,
     },
 
