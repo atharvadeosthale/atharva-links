@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     },
     {
       label: "Instagram",
-      url: "https://instagram.com/atharvabuilds",
+      url: "https://instagram.com/atharvadeosthale",
       featured: false,
     },
     {
