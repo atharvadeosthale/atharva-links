@@ -18,8 +18,8 @@ const Home: NextPage = () => {
       featured: false,
     },
     {
-      label: "Personal Blog on Hashnode",
-      url: "https://blog.atharva.codes",
+      label: "Blog",
+      url: "https://atharva.codes/blog",
       featured: false,
     },
     {
@@ -37,128 +37,148 @@ const Home: NextPage = () => {
       url: "https://linkedin.com/in/atharvadeosthale",
       featured: false,
     },
-    {
-      label: "Casual coffee chat with me",
-      url: "https://cal.com/atharvadeosthale/coffee-chat",
-      featured: false,
-    },
   ]);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  const sortedLinks = [...links].sort(
+    (a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)
+  );
 
   return (
-    <div className="min-h-screen bg-[#0a0b0d] text-white relative overflow-hidden selection:bg-purple-500/30 selection:text-white">
-      {/* Noise texture */}
-      <div className="fixed inset-0 opacity-[0.015] pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
-            backgroundRepeat: "repeat",
-          }}
-        />
+    <div className="min-h-screen bg-base text-bone relative noise-bg">
+      {/* Decorative marquee strip at top */}
+      <div className="w-full bg-bone text-base overflow-hidden border-b-[3px] border-bone">
+        <div className="animate-marquee whitespace-nowrap py-1.5 font-mono text-xs tracking-widest">
+          {Array(4)
+            .fill(
+              "DEVELOPER \u2022 CONTENT CREATOR \u2022 LINKS \u2022 CONNECT \u2022 "
+            )
+            .map((text, i) => (
+              <span key={i} className="mx-4">
+                {text}
+              </span>
+            ))}
+        </div>
       </div>
 
-      {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0b0d] via-[#131517] to-[#1a1b1e] opacity-80" />
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute top-20 -left-32 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-[128px] animate-blob" />
-        <div className="absolute top-40 -right-32 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-[128px] animate-blob animation-delay-2000" />
-        <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-screen filter blur-[128px] animate-blob animation-delay-4000" />
-      </div>
-
-      {/* Grid pattern */}
-      <div className="absolute inset-0 w-full h-full bg-[url('/assets/grid.svg')] opacity-[0.02]" />
-
-      <div className="flex flex-col max-w-4xl mx-auto p-5 relative z-10">
+      <div className="flex flex-col max-w-lg mx-auto px-5 relative z-10">
         <Head>
           <title>Links - Atharva Deosthale</title>
           <link rel="icon" href="/favicon.ico" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
             rel="stylesheet"
           />
-          <meta name="theme-color" content="#0a0b0d" />
+          <meta name="theme-color" content="#0A0A0A" />
           <meta
             name="description"
             content="All important links related to Atharva Deosthale in one place."
           />
         </Head>
 
+        {/* Profile Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mt-24 w-full text-center flex flex-col items-center"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mt-16 md:mt-20 flex flex-col items-center text-center"
         >
+          {/* Profile picture with brutalist frame */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ rotate: -2 }}
             transition={{ duration: 0.2 }}
-            className="relative group cursor-pointer"
+            className="relative"
           >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200 animate-tilt" />
-            <img
-              src="/assets/pfp.png"
-              alt="Atharva Deosthale"
-              className="relative h-32 w-32 rounded-full ring-2 ring-white/10 object-cover"
-            />
+            <div className="border-brutal-thick bg-surface p-1.5 shadow-brutal-lg rotate-2 hover:rotate-0 transition-transform duration-200">
+              <img
+                src="/assets/pfp.jpeg"
+                alt="Atharva Deosthale"
+                className="h-28 w-28 md:h-32 md:w-32 object-cover"
+              />
+            </div>
+            {/* Decorative sticker */}
+            <div className="absolute -bottom-2 -right-3 bg-yolk text-base border-brutal px-2 py-0.5 font-mono text-[10px] font-bold rotate-6 shadow-brutal-hover">
+              HI!
+            </div>
           </motion.div>
 
+          {/* Name */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-8 space-y-3"
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="mt-8"
           >
-            <h1 className="font-bold text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 tracking-tight">
-              Atharva Deosthale
+            <h1 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-bone leading-none">
+              Atharva
+              <br />
+              <span className="relative inline-block">
+                Deosthale
+                <div className="absolute -bottom-1 left-0 right-0 h-3 bg-yolk -z-10 -rotate-1" />
+              </span>
             </h1>
-            <p className="text-gray-400 text-lg font-medium tracking-wide">
+          </motion.div>
+
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="mt-4 flex items-center gap-2"
+          >
+            <div className="h-[2px] w-6 bg-bone/40" />
+            <p className="font-mono text-sm tracking-wide text-bone/50 uppercase">
               Developer & Content Creator
             </p>
+            <div className="h-[2px] w-6 bg-bone/40" />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="mt-6 text-base md:text-lg max-w-2xl leading-relaxed text-gray-400 font-light"
+          {/* Welcome text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="mt-5 text-sm md:text-base max-w-sm leading-relaxed text-bone/50 font-mono"
           >
-            Welcome! These are all the important links you can refer to. I keep
-            them updated so if you see me refer to this link, it might be
-            updated to include a new link or an updated link. Thanks for your
-            time and have a great day!
-          </motion.div>
+            All my important links in one place. Bookmark this page — it stays
+            updated.
+          </motion.p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="mt-12 mb-24 flex flex-col gap-y-3 max-w-xl mx-auto w-full"
+        {/* Divider */}
+        <div className="mt-10 mb-8 flex items-center gap-3">
+          <div className="flex-1 border-t-[2px] border-bone/20 border-dashed" />
+          <span className="font-mono text-xs text-bone/30 uppercase tracking-widest">
+            Links
+          </span>
+          <div className="flex-1 border-t-[2px] border-bone/20 border-dashed" />
+        </div>
+
+        {/* Links */}
+        <div className="mb-16 flex flex-col gap-y-3.5 w-full">
+          {sortedLinks.map((link, index) => (
+            <Link
+              key={index}
+              label={link.label}
+              url={link.url}
+              featured={link.featured}
+              index={index}
+            />
+          ))}
+        </div>
+
+        {/* Footer */}
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          className="mb-8 text-center"
         >
-          {[...links]
-            .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
-            .map((link, index) => (
-              <Link
-                key={index}
-                label={link.label}
-                url={link.url}
-                featured={link.featured}
-              />
-            ))}
-        </motion.div>
+          <div className="border-brutal-thick bg-surface px-4 py-3 shadow-brutal inline-block">
+            <p className="font-mono text-xs text-bone/30">
+              &copy; {new Date().getFullYear()} &middot; Atharva Deosthale
+            </p>
+          </div>
+        </motion.footer>
       </div>
 
       <Script
